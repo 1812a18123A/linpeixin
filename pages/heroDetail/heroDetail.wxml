@@ -1,0 +1,19 @@
+<view class="hero-detail">
+  <view class="hero-header">
+    <text class="hero-name">{{hero.name || '未知侠客'}}</text>
+    <view class="hero-power">
+      <text>基础战力：{{hero.basePower || 0}}</text>
+      <text>等级：{{hero.level || 0}}</text>
+      <text>等级加成：{{(hero.level || 0) * (hero.levelBonus || 0)}}</text>
+      <text class="total-power">总战力：{{totalPower}}</text>
+    </view>
+  </view>
+
+  <view class="equipment-section">
+    <view class="section-title">装备穿戴</view>
+    <view class="equipment-slot" wx:for="{{equipmentSlots}}" wx:key="type" data-type="{{item.type}}" bindtap="openEquipSelect">
+      <text class="slot-label">{{item.label}}</text>
+      <text class="slot-value">{{item.equipment ? item.equipment.name : '未穿戴'}}</text>
+    </view>
+  </view>
+</view>
